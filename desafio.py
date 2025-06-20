@@ -38,7 +38,30 @@ class conta:
     def depoitar(self,valorADepositar):
         if valorADepositar > 0:
             self.saldo += valorADepositar
-            self.extrato.append(lancamento("deposito",valorADepositar,self.saldo))
+            self.extrato.append(lancamento("Deposito",valorADepositar,self.saldo))
+            return 'Depositado com sucesso!'
+        return 'Erro: O valor inserido e invalido!'
+
+        
+        
+    def sacar(self,valorASacar):
+
+        if valorASacar > self.saldo:
+            return "Operação falhou! Você não tem saldo suficiente."
+
+        elif valorASacar > self.limite:
+            return "Operação falhou! O valor do saque excede o limite."
+
+        elif self.numero_saques > LIMITE_SAQUES:
+            return "Operação falhou! Número máximo de saques excedido."
+
+        elif valor > 0:
+            self.saldo -= valorASacar
+            self.extrato.append(lancamento("Saque",valorASacar,self.saldo))
+            self.numero_saques += 1
+
+        else:
+            return "Operação falhou! O valor informado é inválido."
             
         
         
