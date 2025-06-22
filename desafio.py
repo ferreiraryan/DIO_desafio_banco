@@ -68,7 +68,7 @@ class Conta:
 
 
 class Main:
-    def inputParaFloat(self,tipo):
+    def ler_valor(self,tipo):
         try:
             return float(input(f"Informe o valor do {tipo}: "))
         except:
@@ -85,11 +85,11 @@ class Main:
             opcao = input(menu)
 
             if opcao == "d":
-                valor = self.inputParaFloat("depósito")
+                valor = self.ler_valor("depósito")
                 print(C1.depositar(valor))
 
             elif opcao == "s":
-                valor = self.inputParaFloat("saque")
+                valor = self.ler_valor("saque")
 
                 print(C1.sacar(valor))
 
